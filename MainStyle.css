@@ -1,0 +1,5 @@
+.Card-CSS { outline:1px black solid; padding:10px; width:82px; height:82px;}
+
+.flex-center { justify-content: center; align-items: center; }
+.flex { display:flex; }
+.flexwrap { flex-wrap: wrap; }
