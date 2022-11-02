@@ -1,5 +1,17 @@
-.Card-CSS { outline:1px black solid; padding:10px; width:82px; height:82px;}
+body { margin:0; padding:0; }
+.hidden { display:none; }
+.margin-4px { margin-left: 8px; margin-right: 8px; }
+.small-margin { margin:20px; }
+.small-margin-bottom { margin-bottom: 20px; }
 
+.max-width-80 { max-width: 80px; }
+
+.button { background-color: aliceblue; padding:10px; border:1px black solid; cursor:pointer; }
+.Card-CSS { outline:1px black solid; padding:10px; width:82px; height:82px;}
+.highlight { background-color: black; color:white; }
+
+.text-align-center { text-align: center; }
 .flex-center { justify-content: center; align-items: center; }
 .flex { display:flex; }
+.flex-one { flex:1; }
 .flexwrap { flex-wrap: wrap; }

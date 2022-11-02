@@ -5,12 +5,28 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Periodic Filter</title>
-    <link rel="icon" href="./favicon.png">
+    <link rel="icon" href="./images/favicon.png">
     <link rel="stylesheet" href="./MainStyle.css">
 </head>
-<body>
+<body class="margin-4px">
+
+    <h1>Welcome to the periodic table filter!</h1>
+    <h2>Sort by Phase</h2>
+    <div class="flex text-align-center small-margin-bottom">
+        <div id="sort-by-gas" class="button flex-one max-width-80">Gas</div>
+        <div id="sort-by-solid" class="button flex-one max-width-80">Solid</div>
+        <div id="sort-by-liquid" class="button flex-one max-width-80">Liquid</div>
+    </div>
+
+    <h2>Sort by Name</h2>
+    <div class="flex text-align-center small-margin-bottom">
+        <label for="name-filter">Type Element Name: </label>
+        <input id="name-filter" type="text">
+    </div>
+
 
     <div id="parent" class="flex flexwrap"></div>
+    <div id="Empty-Database" class="hidden">Oops, you have overfiltered the elements. Quick, unfilter them before you destroy everything!</div>
 
     <script src="./MainScript.js"></script>
 </body>
