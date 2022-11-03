@@ -5,12 +5,21 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Periodic Filter</title>
-    <link rel="icon" href="./images/favicon.png">
+    <link rel="icon" href="./images/favicon.webp">
     <link rel="stylesheet" href="./MainStyle.css">
 </head>
-<body class="margin-4px">
+<body class="margin-140px">
+<!-- 
+    <div id="modal-bg" class="hidden"></div>
+    <div id="modal" class="hidden"></div> -->
 
-    <h1>Welcome to the periodic table filter!</h1>
+    <div class="flex text-align-center">
+        <h1>Welcome to the periodic table filter!</h1>
+        <div class="button flex-one max-width-80 vertical-center-margin">Large</div>
+        <div class="button flex-one max-width-80 vertical-center-margin">Thumbnail</div>
+        <div class="button flex-one max-width-80 vertical-center-margin">List</div>
+    </div>
+
     <h2>Sort by Phase</h2>
     <div class="flex text-align-center small-margin-bottom">
         <div id="sort-by-gas" class="button flex-one max-width-80">Gas</div>
@@ -25,8 +34,10 @@
     </div>
 
 
-    <div id="parent" class="flex flexwrap"></div>
-    <div id="Empty-Database" class="hidden">Oops, you have overfiltered the elements. Quick, unfilter them before you destroy everything!</div>
+    <div id="parent" class="">
+        <div id="child"></div>
+    </div>
+    <div id="Empty-Database" class="hidden">Oops, you have overfiltered the elements. Quick, unfilter them before the Element Keeper destroys everything!!</div>
 
     <script src="./MainScript.js"></script>
 </body>
