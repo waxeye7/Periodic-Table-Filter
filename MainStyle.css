@@ -1,55 +1,48 @@
 * { margin:0; padding:0; }
-body { background-color: rgb(250, 250, 250); }
+/* body { background-color: rgb(250, 250, 250); } */
 
 .hidden { display:none; }
+.hide { height:0 !important; }
 .margin-4px { margin-left: 8px; margin-right: 8px; }
 .margin-60px { margin-left:60px; margin-right:60px; }
 .margin-100px { margin-left:100px; margin-right:100px; }
-.margin-140px { margin-left:140px; margin-right:140px; }
+.responsive-margin { margin-left:clamp(30px, 9vw, 160px); margin-right:clamp(30px, 9vw, 160px); }
+.very-small-margin { margin:10px; }
 .small-margin { margin:20px; }
-.small-margin-bottom { margin-bottom: 20px; }
+.small-margin-bottom { margin-bottom: 20px;  }
 .vertical-center-margin { margin-top: auto; margin-bottom: auto; }
-
-
-#modal{
-    position: fixed;
-    top: 10%;bottom: 10%;right: 10%;left: 10%;
-    background-color: black;
-    color:white;
-    z-index: 10;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    border-radius: 20px;
-    z-index: 3;
-}
-#modal-bg { 
-    position: fixed;
-    backdrop-filter:blur(3px);
-    top: 0%;bottom: 0%;right: 0%;left: 0%;
-    z-index: 2;
- }
-
 
 #Empty-Database { font-size: 20px; }
 .max-width-80 { max-width: 80px; }
 
+.bohr-img-wrapper { max-height: 140px; max-width: 140px; mix-blend-mode: multiply; position: absolute; top:-62px; right:20px;}
+.bohr-img-wrapper img { height:100%; width:100%; }
+
+.sort-by-font { font-family: "vudotronic", Arial, Helvetica, sans-serif; }
 .button { background-color: aliceblue; padding:10px; border:1px black solid; cursor:pointer; }
-.Card-CSS { outline:1px indigo solid; max-width: auto; margin-bottom: 26px; position:relative;}
-.Card-CSS:hover { background-color: rgb(234, 234, 234); cursor: pointer; }
-.absolute-symbol { position:absolute; font-weight:500; color:black; background-color: white; padding:6px 6px 6px 4px; width:22px; height:22px; border-radius: 0px 0px 6px 0px; text-align: center;}
-.Modal-Div { position:fixed; top:10%; bottom:10%; left:10%; right:10%; background-color: orange; }
-.Div-Background { background-color: red; position:fixed; }
+#child { box-shadow: inset 0 0 3px 5px rgba(0, 0, 0, 0.1); outline:1px indigo solid; margin-bottom: 26px; overflow: hidden; border-radius: 5px; }
+#child:hover { background-color: white; cursor: pointer; }
+.Card-CSS { max-width: auto; position:relative;}
+.absolute-symbol { position:absolute; font-weight:500; font-family: Helvetica, sans-serif; color:black; background-color: white; padding:6px 6px 4px 4px; width:22px; height:22px; border-radius: 0px 0px 6px 0px; text-align: center;}
+.extra-info { height: 252px; overflow: hidden; transition: all 0.4s ease-in-out; display:flex; position:relative;}
+.extra-info-para { font-size: 20px; padding-top:8px; padding-bottom:8px; margin-left: 12px; margin-right: 12px; }
+.Extra-Info-Div {  }
+.cpk-hex { min-width: 125px; width:125px; height:100%; outline:1px indigo solid; display:flex; justify-content: center; align-items: center; text-align: center; }
+.symbol-style { color:#fff; font-size: 46px; font-family: "timesnewroman"; width:100%; padding:30px; background-color: rgba(0, 0, 0, 0.199) !important;}
 /* .Img-Wrapper { width:160px; height:160px; overflow: hidden; outline:1px indigo solid;}
  */
  /* .learn-more { margin-top:10px; font-size: 18px; padding:4px; background-color:antiquewhite; } */
-.Img-Wrapper { min-height:100px; max-height:200px; max-width:125px; min-width: 125px; outline:1px indigo solid; }
-.Card-CSS:hover > .absolute-symbol { display: none; }
+ /* .Card-CSS:hover > .absolute-symbol { display: none; }
+ .extra-info:hover ~ .Card-CSS > .absolute-symbol { display: none; } */
+
+.Img-Wrapper {  width: 125px; outline:1px indigo solid; }
 .Img-Wrapper img { width:100%; height:100%; object-fit:cover; }
 .highlight { background-color: black; color:white; }
-.Name-Style { font-size: 26px; margin:0;}
-.flex-column-div { padding-top:12px; padding-bottom:12px; margin-left: 12px; margin-right: 12px;}
+.Name-Style { font-family:'timesnewroman', sans-serif ; font-weight: 100; font-size: 26px; margin:0 0 8px 0; font-size:clamp(24px, 3.4vw, 30px); }
+.summary-style { font-family:Verdana, Geneva, Tahoma, sans-serif; padding:2px; font-size: clamp(13px, 1.6vw, 15px);}
+.flex-column-div { padding-top:12px; padding-bottom:12px; margin-left: 12px; margin-right: 12px; flex:1;}
+
+.four-px-padding { padding-left:4px; padding-right:4px; }
 
 .text-align-center { text-align: center; }
 .flex-center { justify-content: center; align-items: center; }
@@ -57,3 +50,18 @@ body { background-color: rgb(250, 250, 250); }
 .column { flex-direction: column; }
 .flex-one { flex:1; }
 .flexwrap { flex-wrap: wrap; }
+
+
+
+
+
+
+
+
+
+@font-face {
+    font-family: "timesnewroman";
+    src: url("./fonts/timesnewroman.ttf");
+    }
+
+
