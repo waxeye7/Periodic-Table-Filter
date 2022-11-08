@@ -8,8 +8,6 @@ let Sort_By_Gas = document.getElementById("sort-by-gas");
 let Sort_By_Solid = document.getElementById("sort-by-solid");
 let Sort_By_Liquid = document.getElementById("sort-by-liquid");
 
-
-
 async function fetch_element_data() {
     const response = await fetch("./data/Elements.JSON");
     ElementsDatabase = await response.json();
@@ -31,7 +29,7 @@ function MaterialiseElement(ElementsDatabase) {
         let Card_Div = document.createElement('div');
         Card_Div.classList.add("Card-CSS", "flex");
         child = document.createElement('div');
-        child.id = "child";
+        child.classList.add("child");
         parent.appendChild(child);
 
         child.appendChild(Card_Div);
@@ -52,6 +50,20 @@ function MaterialiseElement(ElementsDatabase) {
         let Flex_Column_Div = document.createElement('div');
         Flex_Column_Div.classList.add("flex", "column", "flex-column-div");
         Card_Div.appendChild(Flex_Column_Div);
+
+
+        
+        let Element_Number_For_List_View = document.createElement('p');
+        Element_Number_For_List_View.classList.add("List-view-number", "hidden");
+        Element_Number_For_List_View.innerHTML = element.number;
+        Flex_Column_Div.appendChild(Element_Number_For_List_View);
+
+
+        let Element_Symbol_For_List_View = document.createElement('p');
+        Element_Symbol_For_List_View.classList.add("List-view-symbol", "hidden");
+        Element_Symbol_For_List_View.innerHTML = element.symbol;
+        Flex_Column_Div.appendChild(Element_Symbol_For_List_View);
+
 
         let Element_Name = document.createElement('p');
         Element_Name.classList.add("Name-Style");
@@ -161,6 +173,7 @@ function MaterialiseElement(ElementsDatabase) {
             // this.style.height = (this.offsetHeight + 20).toString() + "px";
         }
     }
+    View_Manager();
     
 }
 
@@ -189,6 +202,7 @@ function sort_by_gas_function() {
     Sort_By_Gas.classList.add("highlight")
 
     checkInput(Gas_Elements, Sort_By_Gas);
+    View_Manager();
 }
 
 Sort_By_Solid.onclick = sort_by_solid_function;
@@ -353,3 +367,164 @@ function checkResultEmpty(DatabaseArray) {
         MaterialiseElement(DatabaseArray);
     }
 }
+
+
+
+function View_Manager() {
+    let Large_Button = document.getElementById("large");
+    let Thumbnail_Button = document.getElementById("thumbnail");
+    let List_Button = document.getElementById("list");
+    if(Thumbnail_Button.classList.contains("highlight")) {
+        // Thumbnail_View();
+    }
+    else if(List_Button.classList.contains("highlight")) {
+        List_View();
+    }
+    else {
+        Large_View();
+    }
+}
+
+let Large_Button = document.getElementById("large");
+let Thumbnail_Button = document.getElementById("thumbnail");
+let List_Button = document.getElementById("list");
+
+Large_Button.onclick = function() {
+    Large_Button.classList.toggle("highlight");
+    Thumbnail_Button.classList.remove("highlight");
+    List_Button.classList.remove("highlight");
+    View_Manager();
+}
+Thumbnail_Button.onclick = function() {
+    Thumbnail_Button.classList.toggle("highlight");
+    Large_Button.classList.remove("highlight");
+    List_Button.classList.remove("highlight");
+    View_Manager();
+}
+List_Button.onclick = function() {
+    List_Button.classList.toggle("highlight");
+    Large_Button.classList.remove("highlight");
+    Thumbnail_Button.classList.remove("highlight");
+    View_Manager();
+}
+
+// let bohr_image_class_element_list = document.getElementsByClassName("bohr-img-wrapper");
+// let cpk_hex_element_list = document.getElementsByClassName("cpk-hex");
+// let image_wrapper_element_list = document.getElementsByClassName("Img-Wrapper");
+// let extra_info_element_list = document.getElementsByClassName("extra-info");
+// let absolute_symbol_element_list = document.getElementsByClassName("absolute-symbol");
+// let summary_element_list = document.getElementsByClassName("summary-style");
+// let symbol_element_list = document.getElementsByClassName("symbol-style");
+// let dropdown_info_element_list = document.getElementsByClassName("extra-info-para");
+// let flex_column_div_element_list = document.getElementsByClassName("flex-column-div");
+// let element_name_div_element_list = document.getElementsByClassName("Name-Style");
+
+function Large_View() {
+    let bohr_image_class_element_list = document.getElementsByClassName("bohr-img-wrapper");
+    let cpk_hex_element_list = document.getElementsByClassName("cpk-hex");
+    let image_wrapper_element_list = document.getElementsByClassName("Img-Wrapper");
+    let extra_info_element_list = document.getElementsByClassName("extra-info");
+    let absolute_symbol_element_list = document.getElementsByClassName("absolute-symbol");
+    let summary_element_list = document.getElementsByClassName("summary-style");
+    let element_name_div_element_list = document.getElementsByClassName("Name-Style");
+    let child_element_list = document.getElementsByClassName("child");
+
+    let ElementsToHide = [bohr_image_class_element_list, cpk_hex_element_list,
+                        image_wrapper_element_list, extra_info_element_list,
+                        absolute_symbol_element_list, summary_element_list,
+                        element_name_div_element_list, child_element_list]
+    for(let i=0; i<ElementsToHide.length; i++) {
+        for(let o=0; o<ElementsToHide[i].length; o++) {
+            if(ElementsToHide[i] == extra_info_element_list) {
+                // ElementsToHide[i][o].classList.add("hide");
+                ElementsToHide[i][o].style.height = "258px";
+                ElementsToHide[i][o].classList.remove("hidden");
+            }
+
+            else if(ElementsToHide[i] == element_name_div_element_list) {
+                ElementsToHide[i][o].style.fontSize = "clamp(24px, 3.4vw, 30px)";
+                ElementsToHide[i][o].style.margin = "0 0 8px 0";
+            }
+
+            else if(ElementsToHide[i] == child_element_list) {
+                ElementsToHide[i][o].style.marginBottom = "24px";
+            }
+
+            else {
+                ElementsToHide[i][o].classList.remove("hidden");
+            }
+        }
+    }
+
+    let div_for_list_element_list = document.getElementsByClassName("flex-column-div");
+    for(let i=0; i<div_for_list_element_list.length; i++) {
+        div_for_list_element_list[i].classList.add("column");
+    }
+
+    let List_view_symbol_element_list = document.getElementsByClassName("List-view-symbol");
+    for(let i=0; i<List_view_symbol_element_list.length; i++) {
+        List_view_symbol_element_list[i].classList.add("hidden");
+    }
+
+    let List_view_number_element_list = document.getElementsByClassName("List-view-number");
+    for(let i=0; i<List_view_number_element_list.length; i++) {
+        List_view_number_element_list[i].classList.add("hidden");
+    }
+}
+
+function List_View() {
+    let bohr_image_class_element_list = document.getElementsByClassName("bohr-img-wrapper");
+    let cpk_hex_element_list = document.getElementsByClassName("cpk-hex");
+    let image_wrapper_element_list = document.getElementsByClassName("Img-Wrapper");
+    let extra_info_element_list = document.getElementsByClassName("extra-info");
+    let absolute_symbol_element_list = document.getElementsByClassName("absolute-symbol");
+    let summary_element_list = document.getElementsByClassName("summary-style");
+    let element_name_div_element_list = document.getElementsByClassName("Name-Style");
+    let child_element_list = document.getElementsByClassName("child");
+
+    let ElementsToHide = [bohr_image_class_element_list, cpk_hex_element_list,
+                        image_wrapper_element_list, extra_info_element_list,
+                        absolute_symbol_element_list, summary_element_list,
+                        element_name_div_element_list, child_element_list];
+
+    for(let i=0; i<ElementsToHide.length; i++) {
+        for(let o=0; o<ElementsToHide[i].length; o++) {
+            if(ElementsToHide[i] == extra_info_element_list) {
+                // ElementsToHide[i][o].classList.add("hide");
+                ElementsToHide[i][o].style.height = "0px";
+                ElementsToHide[i][o].classList.add("hidden");
+            }
+
+            else if(ElementsToHide[i] == element_name_div_element_list) {
+                ElementsToHide[i][o].style.fontSize = "clamp(20px, 3vw, 26px)";
+                ElementsToHide[i][o].style.margin = "0px";
+            }
+
+            else if(ElementsToHide[i] == child_element_list) {
+                ElementsToHide[i][o].style.marginBottom = "10px";
+            }
+
+            else {
+                ElementsToHide[i][o].classList.add("hidden");
+            }
+        }
+    }
+
+    let div_for_list_element_list = document.getElementsByClassName("flex-column-div");
+    for(let i=0; i<div_for_list_element_list.length; i++) {
+        div_for_list_element_list[i].classList.remove("column");
+    }
+
+    let List_view_symbol_element_list = document.getElementsByClassName("List-view-symbol");
+    for(let i=0; i<List_view_symbol_element_list.length; i++) {
+        List_view_symbol_element_list[i].classList.remove("hidden");
+    }
+
+    let List_view_number_element_list = document.getElementsByClassName("List-view-number");
+    for(let i=0; i<List_view_number_element_list.length; i++) {
+        List_view_number_element_list[i].classList.remove("hidden");
+    }
+}
+
+// symbol_element_list, dropdown_info_element_list,
+//                         flex_column_div_element_list
