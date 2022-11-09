@@ -6,36 +6,68 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Periodic Filter</title>
     <link rel="icon" href="./images/favicon.webp">
-    <link rel="stylesheet" href="./MainStyle.css">
+    <link rel="stylesheet" href="./css/MainStyle.css">
+    <link rel="stylesheet" href="./css/NiceInput.css">
 </head>
 <body class="responsive-margin body-background">
 <!-- 
     <div id="modal-bg" class="hidden"></div>
     <div id="modal" class="hidden"></div> -->
 
-    <div class="flex text-align-center">
-        <h1 class="title">Welcome to the periodic table filter!</h1>
-        <div id="large" class="button flex-one max-width-80 vertical-center-margin">Large</div>
-        <div id="thumbnail" class="button flex-one max-width-80 vertical-center-margin">Thumbnail</div>
-        <div id="list" class="button flex-one max-width-80 vertical-center-margin">List</div>
-    </div>
+    <br>
+    <br>
+    <div class="flex space-between align-start">
 
-    <h2 class="sort-by-font">Sort by Phase</h2>
-    <div class="flex text-align-center small-margin-bottom">
-        <div id="sort-by-gas" class="button flex-one max-width-80">Gas</div>
-        <div id="sort-by-solid" class="button flex-one max-width-80">Solid</div>
-        <div id="sort-by-liquid" class="button flex-one max-width-80">Liquid</div>
-    </div>
 
-    <h2 class="sort-by-font">Sort by Name</h2>
-    <div class="flex text-align-center small-margin-bottom">
-        <label for="name-filter">Type Element Name: </label>
-        <input id="name-filter" type="text">
+        <div class="flex text-align-center small-margin-bottom">
+                <div id="sort-by-gas" class="button flex-one min-width-text max-width-phase">Gas</div>
+                <div id="sort-by-solid" class="button flex-one min-width-text max-width-phase">Solid</div>
+                <div id="sort-by-liquid" class="button flex-one min-width-text max-width-phase">Liquid</div>
+        </div>
+        <div class="flex text-align-center">
+            <div id="over-filter-red-border" class="container">
+
+
+                <div class="relative">
+                    <div class="img-wrapper-icon absolute">
+                        <img src="./images/search.webp" alt="">
+                    </div>
+                    <div class="group">      
+                        <input id="name-filter" type="text"  required>
+                        <span class="highlighter"></span>
+                        <span class="bar"></span>
+                        <label for="name-filter">Element Name: </label>
+
+                    
+                    </div> 
+                </div>
+
+            </div>
+        <!-- imported -->
+        </div>
+        <div class="flex text-align-center position-of-view-buttons">
+            <div class="flex column">
+                <img id="large" class="button flex-one max-width-view border-radius-left-guy" src="./images/large.png"></img>
+                <p class="small-margin-top size">Large</p>
+            </div>
+            <div class="flex column">
+                <img id="thumbnail" class="button flex-one max-width-view middle-guy-button" src="./images/thumbnail.png"></img>
+                <p class="small-margin-top size">Thumbnail</p>
+            </div>
+            <div class="flex column">
+                <img id="list" class="button flex-one max-width-view border-radius-right-guy" src="./images/list.png"></img>
+                <p class="small-margin-top size">List</p>
+            </div>
+        </div>
+
     </div>
+        <!-- imported -->
+    <h1 id="not-found" class="hidden padding-top">No Element Found</h1>
+    <!-- <h1 id="not-string" class="hidden">Input Name Please</h1> -->
+    <br>
 
 
     <div id="parent" class="">
-        <div id="child"></div>
     </div>
     <div id="Empty-Database" class="hidden">Oops, you have overfiltered the elements. Quick, unfilter them before the Element Keeper destroys everything!!</div>
 
