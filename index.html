@@ -9,65 +9,62 @@
     <link rel="stylesheet" href="./css/MainStyle.css">
     <link rel="stylesheet" href="./css/NiceInput.css">
 </head>
-<body class="responsive-margin body-background">
+<body class="responsive-margin body-background relative">
 <!-- 
     <div id="modal-bg" class="hidden"></div>
     <div id="modal" class="hidden"></div> -->
 
     <br>
     <br>
-    <div class="flex space-between align-start">
+    <h2 class="absolute logo">LOGO HERE?</h2>
+    <h1 class="text-align-center margin-bottom">Element Filtererrr</h1>
+    <div class="flex relative justify-center">
+
+        <div class="absolute filter-elements-text font-size-phase">Filter Elements:</div>
 
 
-        <div class="flex text-align-center small-margin-bottom">
-                <div id="sort-by-gas" class="button flex-one min-width-text max-width-phase">Gas</div>
-                <div id="sort-by-solid" class="button flex-one min-width-text max-width-phase">Solid</div>
-                <div id="sort-by-liquid" class="button flex-one min-width-text max-width-phase">Liquid</div>
-        </div>
-        <div class="flex text-align-center">
+        <div class="flex text-align-center margin-right-small">
             <div id="over-filter-red-border" class="container">
-
-
                 <div class="relative">
                     <div class="img-wrapper-icon absolute">
                         <img src="./images/search.webp" alt="">
                     </div>
                     <div class="group">      
-                        <input id="name-filter" type="text"  required>
+                        <input id="name-filter" type="text" required>
                         <span class="highlighter"></span>
                         <span class="bar"></span>
                         <label for="name-filter">Element Name: </label>
-
-                    
                     </div> 
                 </div>
 
             </div>
-        <!-- imported -->
         </div>
-        <div class="flex text-align-center position-of-view-buttons">
+        
+        <div class="flex text-align-center margin-left-small margin-vertical-center">
+                <div id="sort-by-gas" class="button flex-one min-width-text width-phase font-size-phase">Gas</div>
+                <div id="sort-by-solid" class="button flex-one min-width-text width-phase font-size-phase">Solid</div>
+                <div id="sort-by-liquid" class="button flex-one min-width-text width-phase font-size-phase">Liquid</div>
+        </div>
+
+
+        <div class="flex text-align-center position-of-view-buttons absolute">
             <div class="flex column">
-                <img id="large" class="button flex-one max-width-view border-radius-left-guy" src="./images/large.png"></img>
-                <p class="small-margin-top size">Large</p>
+                <img id="large" class="flex-one width-view view-buttons border-radius-left-guy" src="./images/large-2.svg"></img>
             </div>
             <div class="flex column">
-                <img id="thumbnail" class="button flex-one max-width-view middle-guy-button" src="./images/thumbnail.png"></img>
-                <p class="small-margin-top size">Thumbnail</p>
+                <img id="thumbnail" class="flex-one width-view view-buttons" src="./images/thumbnail.svg"></img>
             </div>
             <div class="flex column">
-                <img id="list" class="button flex-one max-width-view border-radius-right-guy" src="./images/list.png"></img>
-                <p class="small-margin-top size">List</p>
+                <img id="list" class="flex-one width-view view-buttons border-radius-right-guy" src="./images/list.svg"></img>
             </div>
         </div>
 
     </div>
-        <!-- imported -->
     <h1 id="not-found" class="hidden padding-top">No Element Found</h1>
-    <!-- <h1 id="not-string" class="hidden">Input Name Please</h1> -->
     <br>
 
 
-    <div id="parent" class="">
+    <div id="parent" class="margin-top">
     </div>
     <div id="Empty-Database" class="hidden">Oops, you have overfiltered the elements. Quick, unfilter them before the Element Keeper destroys everything!!</div>
 

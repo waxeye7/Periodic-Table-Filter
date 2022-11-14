@@ -5,7 +5,7 @@
   font-family:'Roboto';
   margin:0 auto; 
   display:block; 
-  background:#FFF;
+  background:rgb(250, 250, 250);
   padding:6px 42px 14px 44px;
   border-radius: 4px; }
 
@@ -30,6 +30,7 @@ input 				{
   width:200px;
   border:none;
   border-bottom:1px solid #757575;
+  background-color:rgb(250, 250, 250);
 }
 input:focus 		{ outline:none; }
 
@@ -99,14 +100,14 @@ input:focus ~ .highlight {
 
 /* ANIMATIONS ================ */
 @-webkit-keyframes inputHighlighter {
-	from { background:indigo; }
+	from { background:rgba(78, 14, 226, 0.244); }
   to 	{ width:0; background:transparent; }
 }
 @-moz-keyframes inputHighlighter {
-	from { background:indigo; }
+	from { background:rgba(78, 14, 226, 0.244); }
   to 	{ width:0; background:transparent; }
 }
 @keyframes inputHighlighter {
-	from { background:indigo; }
+	from { background:rgba(78, 14, 226, 0.244); }
   to 	{ width:0; background:transparent; }
 }

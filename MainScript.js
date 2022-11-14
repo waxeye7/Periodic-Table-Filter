@@ -204,6 +204,12 @@ function Large_View() {
 
             else if(ElementsToHide[i] == child_element_list) {
                 ElementsToHide[i][o].style.marginBottom = "24px";
+                ElementsToHide[i][o].classList.remove("child-thumbnail-max-width");
+            }
+
+            else if(ElementsToHide[i] == image_wrapper_element_list) {
+                ElementsToHide[i][o].classList.remove("Img-Wrapper-no-outline");
+                ElementsToHide[i][o].classList.remove("hidden");
             }
 
             else {
@@ -226,6 +232,13 @@ function Large_View() {
     for(let i=0; i<List_view_number_element_list.length; i++) {
         List_view_number_element_list[i].classList.add("hidden");
     }
+    let card_css_element_list = document.getElementsByClassName("Card-CSS");
+    for(let i=0; i<card_css_element_list.length; i++) {
+        card_css_element_list[i].classList.remove("column");
+    }
+
+    let parent = document.getElementById("parent");
+    parent.classList.remove("flex", "flexwrap")
 }
 
 function Thumbnail_View() {
@@ -245,8 +258,8 @@ function Thumbnail_View() {
     for(let i=0; i<ElementsToHide.length; i++) {
         for(let o=0; o<ElementsToHide[i].length; o++) {
             if(ElementsToHide[i] == extra_info_element_list) {
-                ElementsToHide[i][o].style.height = "258px";
-                ElementsToHide[i][o].classList.remove("hidden");
+                ElementsToHide[i][o].style.height = "0px";
+                ElementsToHide[i][o].classList.add("hidden");
             }
 
 
@@ -266,6 +279,12 @@ function Thumbnail_View() {
 
             else if(ElementsToHide[i] == child_element_list) {
                 ElementsToHide[i][o].style.marginBottom = "24px";
+                ElementsToHide[i][o].classList.add("child-thumbnail-max-width");
+            }
+
+            else if(ElementsToHide[i] == image_wrapper_element_list) {
+                ElementsToHide[i][o].classList.add("Img-Wrapper-no-outline");
+                ElementsToHide[i][o].classList.remove("hidden");
             }
 
             else {
@@ -288,6 +307,13 @@ function Thumbnail_View() {
     for(let i=0; i<List_view_number_element_list.length; i++) {
         List_view_number_element_list[i].classList.add("hidden");
     }
+    let card_css_element_list = document.getElementsByClassName("Card-CSS");
+    for(let i=0; i<card_css_element_list.length; i++) {
+        card_css_element_list[i].classList.add("column");
+
+    }
+    let parent = document.getElementById("parent");
+    parent.classList.add("flex", "flexwrap")
 }
 
 function List_View() {
@@ -319,6 +345,13 @@ function List_View() {
 
             else if(ElementsToHide[i] == child_element_list) {
                 ElementsToHide[i][o].style.marginBottom = "10px";
+                ElementsToHide[i][o].classList.remove("child-thumbnail-max-width");
+                
+            }
+
+            else if(ElementsToHide[i] == image_wrapper_element_list) {
+                ElementsToHide[i][o].classList.remove("Img-Wrapper-no-outline");
+                ElementsToHide[i][o].classList.add("hidden");
             }
 
             else {
@@ -341,6 +374,13 @@ function List_View() {
     for(let i=0; i<List_view_number_element_list.length; i++) {
         List_view_number_element_list[i].classList.remove("hidden");
     }
+    let card_css_element_list = document.getElementsByClassName("Card-CSS");
+    for(let i=0; i<card_css_element_list.length; i++) {
+        card_css_element_list[i].classList.remove("column");
+    }
+
+    let parent = document.getElementById("parent");
+    parent.classList.remove("flex", "flexwrap")
 }
 
 
