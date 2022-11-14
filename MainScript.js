@@ -204,7 +204,7 @@ function Large_View() {
 
             else if(ElementsToHide[i] == child_element_list) {
                 ElementsToHide[i][o].style.marginBottom = "24px";
-                ElementsToHide[i][o].classList.remove("child-thumbnail-max-width");
+                ElementsToHide[i][o].classList.remove("child-thumbnail-max-width", "grid-content");
             }
 
             else if(ElementsToHide[i] == image_wrapper_element_list) {
@@ -238,7 +238,7 @@ function Large_View() {
     }
 
     let parent = document.getElementById("parent");
-    parent.classList.remove("flex", "flexwrap")
+    parent.classList.remove("flex", "flexwrap", "grid-container")
 }
 
 function Thumbnail_View() {
@@ -273,19 +273,20 @@ function Thumbnail_View() {
             }
 
             else if(ElementsToHide[i] == element_name_div_element_list) {
-                ElementsToHide[i][o].style.fontSize = "clamp(24px, 3.4vw, 30px)";
+                // ElementsToHide[i][o].style.fontSize = "clamp(24px, 3.4vw, 30px)";
                 ElementsToHide[i][o].style.margin = "0 0 8px 0";
             }
 
             else if(ElementsToHide[i] == child_element_list) {
                 ElementsToHide[i][o].style.marginBottom = "24px";
-                ElementsToHide[i][o].classList.add("child-thumbnail-max-width");
+                ElementsToHide[i][o].classList.add("child-thumbnail-max-width", "grid-content");
             }
 
             else if(ElementsToHide[i] == image_wrapper_element_list) {
                 ElementsToHide[i][o].classList.add("Img-Wrapper-no-outline");
                 ElementsToHide[i][o].classList.remove("hidden");
             }
+
 
             else {
                 ElementsToHide[i][o].classList.remove("hidden");
@@ -313,7 +314,7 @@ function Thumbnail_View() {
 
     }
     let parent = document.getElementById("parent");
-    parent.classList.add("flex", "flexwrap")
+    parent.classList.add("grid-container");
 }
 
 function List_View() {
@@ -345,7 +346,7 @@ function List_View() {
 
             else if(ElementsToHide[i] == child_element_list) {
                 ElementsToHide[i][o].style.marginBottom = "10px";
-                ElementsToHide[i][o].classList.remove("child-thumbnail-max-width");
+                ElementsToHide[i][o].classList.remove("child-thumbnail-max-width", "grid-content");
                 
             }
 
@@ -380,7 +381,7 @@ function List_View() {
     }
 
     let parent = document.getElementById("parent");
-    parent.classList.remove("flex", "flexwrap")
+    parent.classList.remove("flex", "flexwrap", "grid-container")
 }
 
 
