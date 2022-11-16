@@ -8,6 +8,7 @@ let TotalElements = [];
 let PhaseFilteredElements;
 let NameFilteredElements;
 
+
 let Sort_By_Gas = document.getElementById("sort-by-gas");
 let Sort_By_Solid = document.getElementById("sort-by-solid");
 let Sort_By_Liquid = document.getElementById("sort-by-liquid");
@@ -37,6 +38,13 @@ let Filter_By_Name_Input = document.getElementById("name-filter");
 
 Filter_By_Name_Input.oninput = FilterManager;
 
+let clear_button = document.getElementById("clear");
+clear_button.onclick = function() {
+    if(Filter_By_Name_Input.value.length > 0) {
+        Filter_By_Name_Input.value = "";
+        FilterManager();
+    }
+}
 
 fetch_element_data();
 
@@ -193,7 +201,7 @@ function Large_View() {
     for(let i=0; i<ElementsToHide.length; i++) {
         for(let o=0; o<ElementsToHide[i].length; o++) {
             if(ElementsToHide[i] == extra_info_element_list) {
-                ElementsToHide[i][o].style.height = "258px";
+                ElementsToHide[i][o].style.height = "272px";
                 ElementsToHide[i][o].classList.remove("hidden");
             }
 
@@ -203,6 +211,8 @@ function Large_View() {
             }
 
             else if(ElementsToHide[i] == child_element_list) {
+                ElementsToHide[i][o].classList.add("large")
+                ElementsToHide[i][o].classList.remove("list", "thumbnail")
                 ElementsToHide[i][o].style.marginBottom = "24px";
                 ElementsToHide[i][o].classList.remove("child-thumbnail-max-width", "grid-content");
             }
@@ -235,6 +245,16 @@ function Large_View() {
     let card_css_element_list = document.getElementsByClassName("Card-CSS");
     for(let i=0; i<card_css_element_list.length; i++) {
         card_css_element_list[i].classList.remove("column");
+    }
+
+    let List_view_category_element_list = document.getElementsByClassName("List-view-category");
+    for(let i=0; i<List_view_category_element_list.length; i++) {
+        List_view_category_element_list[i].classList.add("hidden");
+    }
+
+    let List_view_atomic_mass_element_list = document.getElementsByClassName("List-view-atomic-mass");
+    for(let i=0; i<List_view_atomic_mass_element_list.length; i++) {
+        List_view_atomic_mass_element_list[i].classList.add("hidden");
     }
 
     let parent = document.getElementById("parent");
@@ -278,6 +298,8 @@ function Thumbnail_View() {
             }
 
             else if(ElementsToHide[i] == child_element_list) {
+                ElementsToHide[i][o].classList.add("thumbnail")
+                ElementsToHide[i][o].classList.remove("list", "large")
                 ElementsToHide[i][o].style.marginBottom = "24px";
                 ElementsToHide[i][o].classList.add("child-thumbnail-max-width", "grid-content");
             }
@@ -311,8 +333,18 @@ function Thumbnail_View() {
     let card_css_element_list = document.getElementsByClassName("Card-CSS");
     for(let i=0; i<card_css_element_list.length; i++) {
         card_css_element_list[i].classList.add("column");
-
     }
+
+    let List_view_category_element_list = document.getElementsByClassName("List-view-category");
+    for(let i=0; i<List_view_category_element_list.length; i++) {
+        List_view_category_element_list[i].classList.add("hidden");
+    }
+
+    let List_view_atomic_mass_element_list = document.getElementsByClassName("List-view-atomic-mass");
+    for(let i=0; i<List_view_atomic_mass_element_list.length; i++) {
+        List_view_atomic_mass_element_list[i].classList.add("hidden");
+    }
+
     let parent = document.getElementById("parent");
     parent.classList.add("grid-container");
 }
@@ -345,6 +377,8 @@ function List_View() {
             }
 
             else if(ElementsToHide[i] == child_element_list) {
+                ElementsToHide[i][o].classList.add("list")
+                ElementsToHide[i][o].classList.remove("thumbnail", "large")
                 ElementsToHide[i][o].style.marginBottom = "10px";
                 ElementsToHide[i][o].classList.remove("child-thumbnail-max-width", "grid-content");
                 
@@ -379,6 +413,41 @@ function List_View() {
     for(let i=0; i<card_css_element_list.length; i++) {
         card_css_element_list[i].classList.remove("column");
     }
+
+    let List_view_category_element_list = document.getElementsByClassName("List-view-category");
+    for(let i=0; i<List_view_category_element_list.length; i++) {
+        List_view_category_element_list[i].classList.remove("hidden");
+    }
+
+    let List_view_atomic_mass_element_list = document.getElementsByClassName("List-view-atomic-mass");
+    for(let i=0; i<List_view_atomic_mass_element_list.length; i++) {
+        List_view_atomic_mass_element_list[i].classList.remove("hidden");
+    }
+
+    // let category_element_list = document.getElementsByClassName("category");
+    // for(let i=0; i<category_element_list.length; i++) {
+    //     category_element_list[i].classList.add("not-hidden");
+    // }
+
+    // let appearance_element_list = document.getElementsByClassName("appearance");
+    // for(let i=0; i<appearance_element_list.length; i++) {
+    //     appearance_element_list[i].classList.add("not-hidden");
+    // }
+
+    // let discovered_by_element_list = document.getElementsByClassName("discovered_by");
+    // for(let i=0; i<discovered_by_element_list.length; i++) {
+    //     discovered_by_element_list[i].classList.add("not-hidden");
+    // }
+
+    // let boil_element_list = document.getElementsByClassName("boil");
+    // for(let i=0; i<boil_element_list.length; i++) {
+    //     boil_element_list[i].classList.add("not-hidden");
+    // }
+
+    // let atomic_mass_element_list = document.getElementsByClassName("atomic_mass");
+    // for(let i=0; i<atomic_mass_element_list.length; i++) {
+    //     atomic_mass_element_list[i].classList.add("not-hidden");
+    // }
 
     let parent = document.getElementById("parent");
     parent.classList.remove("flex", "flexwrap", "grid-container")
@@ -419,18 +488,11 @@ function MaterialiseElement(ElementsDatabase) {
         Flex_Column_Div.classList.add("flex", "column", "flex-column-div");
         Card_Div.appendChild(Flex_Column_Div);
 
-
         
         let Element_Number_For_List_View = document.createElement('p');
         Element_Number_For_List_View.classList.add("List-view-number", "hidden");
         Element_Number_For_List_View.innerHTML = element.number;
         Flex_Column_Div.appendChild(Element_Number_For_List_View);
-
-
-        let Element_Symbol_For_List_View = document.createElement('p');
-        Element_Symbol_For_List_View.classList.add("List-view-symbol", "hidden");
-        Element_Symbol_For_List_View.innerHTML = element.symbol;
-        Flex_Column_Div.appendChild(Element_Symbol_For_List_View);
 
 
         let Element_Name = document.createElement('p');
@@ -451,6 +513,49 @@ function MaterialiseElement(ElementsDatabase) {
                 Flex_Column_Div.appendChild(Element_Info);
             }
         }
+
+
+        let Element_Symbol_For_List_View = document.createElement('p');
+        Element_Symbol_For_List_View.classList.add("List-view-symbol", "hidden");
+        Element_Symbol_For_List_View.innerHTML = "[" + element.symbol + "]";
+        Flex_Column_Div.appendChild(Element_Symbol_For_List_View);
+
+
+        let Element_Category_For_List_View = document.createElement('p');
+        Element_Category_For_List_View.classList.add("List-view-category", "hidden");
+        let capitaliseCategory = element.category.charAt(0).toUpperCase() + element.category.slice(1);
+        Element_Category_For_List_View.innerHTML = capitaliseCategory;
+        Flex_Column_Div.appendChild(Element_Category_For_List_View);
+
+        let Element_Atomic_Mass_For_List_View = document.createElement('p');
+        Element_Atomic_Mass_For_List_View.classList.add("List-view-atomic-mass", "hidden");
+        if(element.atomic_mass.toString().includes(".")) {
+            Element_Atomic_Mass_For_List_View.innerHTML = "Atomic Mass: " + element.atomic_mass.toFixed(3);;
+        }
+        else {
+            Element_Atomic_Mass_For_List_View.innerHTML = "Atomic Mass: " + element.atomic_mass
+        }
+        Flex_Column_Div.appendChild(Element_Atomic_Mass_For_List_View);
+
+
+        // let Element_Name = document.createElement('p');
+        // Element_Name.classList.add("Name-Style");
+        // Element_Name.innerHTML = element.name;
+        // Flex_Column_Div.appendChild(Element_Name);
+        // let info_list = ["summary"];
+        // for(let property of Object.keys(element)) {
+        //     if(info_list.includes(property)) {
+        //         let Element_Info = document.createElement('p');
+        //         if(element[property]) {
+        //             Element_Info.innerHTML += element[property];
+        //         }
+        //         else {
+        //             Element_Info.innerHTML += "[ERR_" + property.toUpperCase() + "_NOT_FOUND]";
+        //         }
+        //         Element_Info.classList.add("summary-style")
+        //         Flex_Column_Div.appendChild(Element_Info);
+        //     }
+        // }
 
         let Extra_Info = document.createElement('div');
         Extra_Info.classList.add("extra-info", "hide");
@@ -490,6 +595,9 @@ function MaterialiseElement(ElementsDatabase) {
                     let splitProperty = property.split("_").join(" ");
                     let capitaliseSplitProperty = splitProperty.charAt(0).toUpperCase() + splitProperty.slice(1);
 
+                    // classlist to track the property
+                    Element_Info.classList.add(property)
+
                     let value = element[property];
                     if(typeof(value) == "string") {
                         value = value.charAt(0).toUpperCase() + value.slice(1);
@@ -511,12 +619,10 @@ function MaterialiseElement(ElementsDatabase) {
                 Extra_Info_Div.appendChild(Element_Info);
                 }
             }
+
         Extra_Info.appendChild(Extra_Info_Div);
 
-
-
-        child.appendChild(Extra_Info);
-
+        child.appendChild(Extra_Info)
 
         Card_Div.onclick = function() {
             let allCards = document.getElementsByClassName("extra-info");

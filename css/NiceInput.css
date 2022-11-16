@@ -2,7 +2,6 @@
 
 /* basic stylings ------------------------------------------ */
 .container 		{ 
-  font-family:'Roboto';
   margin:0 auto; 
   display:block; 
   background:rgb(250, 238, 223);

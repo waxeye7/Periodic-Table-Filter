@@ -17,9 +17,9 @@
     <br>
     <br>
 
-    <img src="./images/logo.png" class="absolute logo"></img>
+    <a href="./index.html"><img src="./images/logo.png" class="absolute logo"></img></a>
 
-    <h1 class="text-align-center margin-bottom title font-family-good">Element Filterer</h1>
+    <h1 class="text-align-center margin-bottom title titlesize">Element Filterer</h1>
     <div id="column-on-small-screen" class="flex relative justify-center">
 
         <!-- <div class="absolute filter-elements-text font-size-phase">Filter Elements:</div> -->
@@ -29,16 +29,18 @@
             <div id="over-filter-red-border" class="container">
                 <div class="relative">
                     <div class="img-wrapper-icon absolute">
-                        <img src="./images/search.webp" alt="">
+                        <img src="./images/search.webp" alt="search icon">
                     </div>
                     <div class="group">      
                         <input id="name-filter" type="text" required>
                         <span class="highlighter"></span>
                         <span class="bar"></span>
                         <label for="name-filter">Element Name: </label>
+                    </div>
+                    <div id="clear" class="img-wrapper-clear absolute">
+                        <img src="./images/clear.svg" alt="clear button">
                     </div> 
                 </div>
-
             </div>
         </div>
         
@@ -66,6 +68,8 @@
     <br>
 
     <div id="parent" class="margin-top"></div>
+
+    <p class="contact-div">if you have any ( J ) queries please contact the dev team at <span><strong>stemmermerlin@gmail.com</strong></span><p>
 
     <div id="Empty-Database" class="hidden">Oops, you have overfiltered the elements. Quick, unfilter them before the Element Keeper destroys everything!!</div>
 

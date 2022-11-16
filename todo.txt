@@ -1,1 +1,1 @@
-add x marker to search box to clear (update the filter after click)
+NOTHING!
